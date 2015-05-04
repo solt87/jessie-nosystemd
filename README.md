@@ -18,11 +18,11 @@ I did this to my LXDE Jessie system, and so far all works well.
 * Reboot
 * Purge systemd:
 
-    `apt-get remove \--purge \--auto-remove systemd`
+    `apt-get remove --purge --auto-remove systemd`
 
 * Prevent installation of systemd packages:
 
-    `/bin/echo -e 'Package: \*systemd*\nPin: origin ""\nPin-Priority: -1' > /etc/apt/preferences.d/systemd`
+    `/bin/echo -e 'Package: *systemd*\nPin: origin ""\nPin-Priority: -1' > /etc/apt/preferences.d/systemd`
 
 * Add the "angband repo" to your repo lists:
 
@@ -36,9 +36,9 @@ I did this to my LXDE Jessie system, and so far all works well.
 
 * Search for any systemd "leftovers", and purge them:
 
-    `dpkg \--get-selections | grep systemd`
+    `dpkg --get-selections | grep systemd`
     
-    `apt-get remove \--purge \--auto-remove <remaining systemd packages>`
+    `apt-get remove --purge --auto-remove <remaining systemd packages>`
 
 
 ## Sources
