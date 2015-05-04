@@ -13,32 +13,32 @@ I did this to my LXDE Jessie system, and so far all works well.
 
 * First, install sysv-init:
 
-    apt-get install sysvinit-core sysvinit sysvinit-utils
+    `apt-get install sysvinit-core sysvinit sysvinit-utils`
 
 * Reboot
 * Purge systemd:
 
-    apt-get remove \--purge \--auto-remove systemd
+    `apt-get remove \--purge \--auto-remove systemd`
 
 * Prevent installation of systemd packages:
 
-    /bin/echo -e 'Package: \*systemd*\nPin: origin ""\nPin-Priority: -1' > /etc/apt/preferences.d/systemd
+    `/bin/echo -e 'Package: \*systemd*\nPin: origin ""\nPin-Priority: -1' > /etc/apt/preferences.d/systemd`
 
 * Add the "angband repo" to your repo lists:
 
-    /bin/echo -e 'deb http://angband.pl/debian nosystemd main\ndeb-src http://angband.pl/debian nosystemd main' > /etc/apt/sources.list.d/angband.list
+    `/bin/echo -e 'deb http://angband.pl/debian nosystemd main\ndeb-src http://angband.pl/debian nosystemd main' > /etc/apt/sources.list.d/angband.list`
 
 * Save and add the repo's signing key from [http://angband.pl/deb/archive.html](http://angband.pl/deb/archive.html)
 
-    apt-key add `<the saved keyfile>`
+    `apt-key add <the saved keyfile>`
 
-    apt-get update; apt-get dist-upgrade
+    `apt-get update; apt-get dist-upgrade`
 
 * Search for any systemd "leftovers", and purge them:
 
-    dpkg \--get-selections | grep systemd
+    `dpkg \--get-selections | grep systemd`
     
-    apt-get remove \--purge \--auto-remove `<remaining systemd packages>`
+    `apt-get remove \--purge \--auto-remove <remaining systemd packages>`
 
 
 ## Sources
